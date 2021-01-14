@@ -1,0 +1,8 @@
+name: r_plot
+channels:
+  - bioconda
+  - conda-forge
+  - r
+dependencies:
+  - r
+  - readline=6.2

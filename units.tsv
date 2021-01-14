@@ -1,0 +1,9 @@
+sample	unit	platform	condition	seqtype	fq1	fq2
+A	1	ILLUMINA	normal	WES	dataset/normal/SRR960925_1.fastq	dataset/normal/SRR960925_2.fastq
+A	1	ILLUMINA	tumor	WES	dataset/cancer/SRR1513683_1.fastq	dataset/cancer/SRR1513683_2.fastq
+B	1	ILLUMINA	normal	WES	dataset/normal/SRR496875.fastq
+C	1	ILLUMINA	normal	WES	dataset/normal/SRR496876.fastq
+B	1	ILLUMINA	tumor	WES	dataset/cancer/SRR496881.fastq
+C	1	ILLUMINA	tumor	WES	dataset/cancer/SRR496882.fastq
+D	1	ILLUMINA	tumor	WES	dataset/cancer/ERR2397739_1.fastq	dataset/cancer/ERR2397739_2.fastq
+D	1	ILLUMINA	normal	wes	dataset/normal/SRR1103215_1.fastq	dataset/normal/SRR1103215_2.fastq

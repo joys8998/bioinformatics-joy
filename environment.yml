@@ -1,0 +1,30 @@
+name: sn
+channels:
+  - conda-forge
+  - bioconda
+  - anaconda
+  - creditx
+dependencies:
+  - snakemake-minimal
+  - picard=2.22.1
+  - jinja2
+  - networkx
+  - matplotlib
+  - graphviz
+  - bcftools=1.10
+  - samtools=1.10
+  - pysam
+  - multiqc
+  - pip
+  - freebayes
+  - rtg-tools
+  - bedtools
+  - vcftools
+  - bowtie2=2.4.2
+  - curl
+  - rust-bio-tools
+  - wget
+  - trimmomatic
+  - pigz
+  - pandas
+  - python-kubernetes

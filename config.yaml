@@ -1,0 +1,53 @@
+samples: samples.tsv
+units: units.tsv
+
+ref:
+  # genome build
+  build: GRCh38
+
+tmp_dir: tmp/
+
+
+processing:
+  remove-duplicates: true
+  # Uncomment and point to a bed file with, e.g., captured regions if necessary,
+  # see https://gatkforums.broadinstitute.org/gatk/discussion/4133/when-should-i-use-l-to-pass-in-a-list-of-intervals.
+  # restrict-regions: captured_regions.bed
+  # If regions are restricted, uncomment this to enlarge them by the given value in order to include
+  # flanking areas.
+  # region-padding: 100
+
+params:
+  gatk:
+    BaseRecalibrator: ""
+  picard:
+    MarkDuplicates: "REMOVE_DUPLICATES=true"
+  trimmomatic:
+    pe:
+      trimmer:
+        # See trimmomatic manual for adding additional options, e.g. for adapter trimming.
+        - "LEADING:3"
+        - "TRAILING:3"
+        - "SLIDINGWINDOW:4:15"
+        - "MINLEN:36"
+    se:
+      trimmer:
+        # See trimmomatic manual for adding additional options, e.g. for adapter trimming.
+        - "LEADING:3"
+        - "TRAILING:3"
+        - "SLIDINGWINDOW:4:15"
+        - "MINLEN:36"
+    extra: ""
+
+
+# Mutect2 Mode
+# Allows somatic variant calling without matched normal
+# Only advised as a last resort - try to get matched normal samples
+tumor_only: false
+# Panel of Normal (PON)
+# Use PON with Mutect2 for variant calling
+use_pon: true
+build_pon: true
+## Parallelism
+# Number of Mutect2 workers per sample
+num_workers: 3

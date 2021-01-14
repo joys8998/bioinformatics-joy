@@ -1,0 +1,74 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+description: snakemake configuration file
+
+type: object
+
+properties:
+  samples:
+    type: string
+  units:
+    type: string
+  build_pon:
+    type: boolean
+    description: build Panel of Normal on normal samples or download the available one
+  use_pon:
+    type: boolean
+    description: use panel of normal in mutect2
+  num_workers:
+    type: integer
+    description: number of Mutect2 workers per sample
+  tumor_only:
+    type: boolean
+    description: use tumor against ref or use also normal samples
+  tmp_dir:
+    type: string
+    description: use it if gatk run out of storage
+  ref:
+    type: object
+    properties:
+      build:
+        type: string
+    required:
+      - build
+
+
+  processing:
+    type: object
+    properties:
+      remove-duplicates:
+        type: boolean
+      restrict-regions:
+        type: string
+      region-padding:
+        type: integer
+    required:
+      - remove-duplicates
+
+  params:
+    type: object
+    properties:
+      gatk:
+        type: object
+        properties:
+          BaseRecalibrator:
+            type: string
+        required:
+          - BaseRecalibrator
+      picard:
+        type: object
+        properties:
+          MarkDuplicates:
+            type: string
+        required:
+          - MarkDuplicates
+    required:
+      - gatk
+      - picard
+
+required:
+  - samples
+  - units
+  - ref
+  - processing
+  - params

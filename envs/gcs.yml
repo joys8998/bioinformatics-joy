@@ -1,0 +1,5 @@
+name: gcs
+channels:
+  - conda-forge
+dependencies:
+  - google-cloud-storage
